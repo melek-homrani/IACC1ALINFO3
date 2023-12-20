@@ -1,0 +1,15 @@
+<main class="p-4">
+  <div [style.backgroundColor]="color"> hello 1ALINFO3</div>
+
+  <mat-form-field>
+    <mat-label>Choose a color</mat-label>
+    <input matInput [(ngModel)]="color" placeholder="e.g. red">
+  </mat-form-field>
+
+  <p>{{title|uppercase}}</p>
+  <input type="submit" value="say hello" (click)="sayHello()">
+
+  <div style="height: 30px;"></div>
+
+  <app-reactive-form></app-reactive-form>
+</main>

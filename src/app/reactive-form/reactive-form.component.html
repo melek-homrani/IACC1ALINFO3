@@ -1,0 +1,23 @@
+<form>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="email" [errorStateMatcher]="matcher" placeholder="e.g pat@example.com">
+    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <span style="margin: 20px;"></span>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [formControl]="password">
+    <mat-error *ngIf="password.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="password.hasError('minlength')">
+      Password must be at least 5 characters long.
+    </mat-error>
+  </mat-form-field>
+</form>
