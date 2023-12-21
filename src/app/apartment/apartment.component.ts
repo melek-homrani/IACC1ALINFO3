@@ -18,5 +18,6 @@ export class ApartmentComponent {
 
   constructor() {
     this.apartments = listApartments;
+    this.dataSource = this.apartments;
   }
 }

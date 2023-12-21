@@ -14,7 +14,8 @@ import { DetailProductComponent } from './product/detail-product/detail-product.
 import { ApartmentComponent } from './apartment/apartment.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HomeComponent } from './home/home.component';
-import { FormApartmentComponent } from './form-apartment/form-apartment.component';
+import { FormApartmentComponent } from './apartment/form-apartment/form-apartment.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { FormApartmentComponent } from './form-apartment/form-apartment.componen
     ApartmentComponent,
     ReactiveFormComponent,
     HomeComponent,
-      FormApartmentComponent
-   ],
+    FormApartmentComponent,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

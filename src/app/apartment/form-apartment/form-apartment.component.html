@@ -1,0 +1,149 @@
+<main class="p-4">
+  <div class="p-4 border">
+    <form [formGroup]="apartForm" (submit)="submit()" (change)="logss()">
+      <h1 class="mb-6">Apartment Form</h1>
+
+      <div class="row mb-3">
+        <label for="apartNum" class="col-sm-3 col-form-label">Apartment Number:</label>
+        <div class="col-sm-8">
+          <input type="text" id="apartNum" [formControlName]="'apartNum'" class="mb-2 form-control">
+          <span *ngIf="apartForm.controls['apartNum'].touched">
+            <mat-error
+              *ngIf="apartForm.controls['apartNum'].hasError('pattern') && !apartForm.controls['apartNum'].hasError('required')">
+              This field must be a number.
+            </mat-error>
+            <mat-error *ngIf="apartForm.controls['apartNum'].hasError('required')">
+              This field is required.
+            </mat-error>
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="floorNum" class="col-sm-3 form-label">Floor Number:</label>
+        <div class="col-sm-8">
+          <input type="text" id="floorNum" class="mb-2 form-control" [formControlName]="'floorNum'">
+          <span *ngIf="apartForm.controls['floorNum'].touched">
+            <mat-error
+              *ngIf="apartForm.controls['floorNum'].hasError('pattern') && !apartForm.controls['floorNum'].hasError('required')">
+              This field must be a number.
+            </mat-error>
+            <mat-error *ngIf="apartForm.controls['floorNum'].hasError('required')">
+              This field is required.
+            </mat-error>
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="surface" class="col-sm-3 form-label">Surface:</label>
+        <div class="col-sm-8">
+          <input type="text" id="surface" class="mb-2 form-control" [formControlName]="'surface'">
+          <span *ngIf="apartForm.controls['surface'].touched">
+            <mat-error
+              *ngIf="apartForm.controls['surface'].hasError('pattern') && !apartForm.controls['surface'].hasError('required')">
+              This field must be a number.
+            </mat-error>
+            <mat-error *ngIf="apartForm.controls['surface'].hasError('required')">
+              This field is required.
+            </mat-error>
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-3">Terrace:</label>
+        <div class="d-flex flex-column col-sm-8">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="terraceYes" name="terrace" value="yes"
+              [formControlName]="'terrace'">
+            <label class="form-check-label" for="terraceYes">Yes</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="terraceNo" name="terrace" value="no"
+              [formControlName]="'terrace'">
+            <label class="form-check-label" for="terraceNo">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3 hidden" [style.display]="apartForm.controls['terrace'].value !== 'yes' ? 'none' : 'flex'">
+        <label for="surfaceTerrace" class="col-sm-3 form-label">Surface Terrace:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" [formControlName]="'surfaceTerrace'">
+          <span *ngIf="apartForm.controls['surfaceTerrace'].touched">
+            <mat-error
+              *ngIf="apartForm.controls['surfaceTerrace'].hasError('pattern') && !apartForm.controls['surfaceTerrace'].hasError('required')">
+              This field must be a number.
+            </mat-error>
+            <mat-error *ngIf="apartForm.controls['surfaceTerrace'].hasError('required')">
+              This field is required.
+            </mat-error>
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-3 form-label">Category:</label>
+        <div class="d-flex flex-column col-sm-8">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="s+1" name="category" value="s+1"
+              [formControlName]="'category'">
+            <label class="form-check-label" for="s+1">S+1</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="s+2" name="category" value="s+2"
+              [formControlName]="'category'">
+            <label class="form-check-label" for="s+2">S+2</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="s+3" name="category" value="s+3"
+              [formControlName]="'category'">
+            <label class="form-check-label" for="s+3">S+3</label>
+          </div>
+        </div>
+        <mat-error
+          *ngIf="apartForm.controls['category'].touched && apartForm.controls['category'].hasError('required')">
+          Ce champ est obligatoire.
+        </mat-error>
+      </div>
+
+      <div class="row mb-3">
+        <label for="description" class="col-sm-3 form-label">Description:</label>
+        <div class="col-sm-8">
+          <textarea class="form-control" [formControlName]="'description'"></textarea>
+          <mat-error
+            *ngIf="apartForm.controls['description'].touched && apartForm.controls['description'].hasError('required')">
+            Ce champ est obligatoire.
+          </mat-error>
+          <mat-error
+            *ngIf="apartForm.controls['description'].touched && apartForm.controls['description'].hasError('minlength')">
+            La description doit contenir au moins 10 caractères.
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="residence" class="col-sm-3 form-label">Residence:</label>
+        <div class="col-sm-8">
+          <select class="form-select" formControlName="residence">
+            <option value="" disabled selected>Select Residence</option>
+            <option *ngFor="let residence of residences" [value]="residence.id">{{ residence.name }}</option>
+          </select>
+          <mat-error
+            *ngIf="apartForm.controls['residence'].touched && apartForm.controls['residence'].hasError('required')">
+            Ce champ est obligatoire.
+          </mat-error>
+        </div>
+      </div>
+
+      <div [class]="'row'">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8">
+          <button class="btn btn-primary me-4" type="submit" [disabled]="!apartForm.valid">Submit</button>
+          <button class="btn border-danger">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

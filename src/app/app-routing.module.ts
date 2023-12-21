@@ -7,18 +7,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApartmentComponent } from './apartment/apartment.component';
 import { DetailApartmentComponent } from './apartment/detail-apartment/detail-apartment.component';
-import { FormApartmentComponent } from './form-apartment/form-apartment.component';
+import { FormApartmentComponent } from './apartment/form-apartment/form-apartment.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'home', redirectTo:'', pathMatch:'full'},
-  {path:'product',component:ProductComponent},
-  {path:'product/:id',component:DetailProductComponent},
-  {path:'residence',component:ResidenceComponent},
-  {path:'apartment',component:ApartmentComponent},
-  {path:'apartment/:id',component:DetailApartmentComponent},
-  {path: 'form', component: FormApartmentComponent},
-  {path:'**', component:NotFoundComponent}
+  { path: '', component: HomeComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: DetailProductComponent },
+  { path: 'residence', component: ResidenceComponent },
+  { path: 'apartment', component: ApartmentComponent },
+  { path: 'apartment/add-new', component: FormApartmentComponent },
+  { path: 'apartment/:id', component: DetailApartmentComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
