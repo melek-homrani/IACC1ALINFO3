@@ -1,0 +1,81 @@
+<!-- <main>
+
+  <div *ngIf="apartments && apartments.length!=0">
+    <table mat-table class="table" border="2">
+      <tr>
+        <th>ID</th>
+        <th>appartNum</th>
+        <th>floorNum</th>
+        <th>surface</th>
+        <th>terrace</th>
+      </tr>
+      <tr *ngFor="let apartment of apartments">
+        <td>{{apartment.id}}</td>
+        <td>{{apartment.appartNum}}</td>
+        <td>{{apartment.floorNum}}</td>
+        <td>{{apartment.surface}}</td>
+        <td>{{apartment.terrace}}</td>
+        <td><button class="btn btn-info">Like</button></td>
+
+      </tr>
+    </table>
+  </div>
+['id', 'appartNum', 'floorNum', 'surface', 'terrace', 'surfaceTerrace', 'category', 'description', 'residence', 'actions'];
+</main> -->
+<!--
+<main >
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th class="text-center" mat-header-cell *matHeaderCellDef="id">Id</th>
+      <td class="text-center" mat-cell *matColumnDef="let apartment">{{apartment.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="appartNum">
+      <th class="text-center" mat-header-cell *matHeaderCellDef="appartNum">appartNum</th>
+      <td class="text-center" mat-cell *matColumnDef="let apartment">{{apartment.appartNum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="floorNum">
+      <th class="text-center" mat-header-cell *matHeaderCellDef="floorNum">floorNum</th>
+      <td class="text-center" mat-cell *matColumnDef="let apartment">{{apartment.floorNum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="surface">
+      <th class="text-center" mat-header-cell *matHeaderCellDef="surface">surface</th>
+      <td class="text-center" mat-cell *matColumnDef="let apartment">{{apartment.surface}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="terrace">
+      <th class="text-center" mat-header-cell *matHeaderCellDef="terrace">terrace</th>
+      <td class="text-center" mat-cell *matColumnDef="let apartment">{{apartment.terrace}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</main> -->
+
+<main class="p-4">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let apartment of apartments">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ apartment.category }}</mat-card-title>
+          <mat-card-subtitle>{{ apartment.residence.name }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Apartment Number: {{ apartment.appartNum }}</p>
+          <p>Surface: {{ apartment.surface }} m²</p>
+          <p>Terrace: {{ apartment.terrace === 'oui' ? 'Yes' : 'No' }}
+            <span *ngIf="apartment.terrace === 'oui'">({{ apartment.surfaceTerrace }} m²)</span>
+          </p>
+          <p>{{ apartment.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" [routerLink]="['/apartment',apartment.id]">View Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</main>

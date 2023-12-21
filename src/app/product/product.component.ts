@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from '../core/models/product';
-import { MatTableDataSource } from '@angular/material/table';
+import { products } from '../core/data/data';
 
-const listProducts: Product[] = [
-  { id: 1, title: 't-shirt 1', price: 50, quantity: 10, like: 0, description: "test" },
-  { id: 2, title: 't-shirt 2', price: 30, quantity: 5, like: 0, description: "test" },
-  { id: 3, title: 't-shirt 3', price: 20, quantity: 0, like: 5, description: "test" }
-]
-
+const listProducts: Product[] = products;
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -16,14 +11,14 @@ const listProducts: Product[] = [
 export class ProductComponent {
   price!: number;
 
-  displayedColumns: string[] = ['id','title', 'price', 'quantity', 'like'];
+  displayedColumns: string[] = ['id','title', 'price', 'quantity', 'like', 'description', 'actions'];
 
   dataSource = listProducts;
 
-  increment(i: number) {
-    this.dataSource[i].like++;
+  increment(product: Product) {
+    this.dataSource.filter((item) => item.id === product.id)[0].like++;
   }
-  buy(i: number) {
-    this.dataSource[i].quantity--;
+  buy(product: Product) {
+    this.dataSource.filter((item) => item.id === product.id)[0].quantity--;
   }
 }
