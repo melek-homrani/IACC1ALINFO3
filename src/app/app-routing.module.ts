@@ -1,23 +1,34 @@
-import { DetailProductComponent } from './product/detail-product/detail-product.component';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ProductComponent } from './product/product.component';
-import { ResidenceComponent } from './residence/residence.component';
+import { DetailProductComponent } from './components/product/detail-product/detail-product.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductComponent } from './components/product/product.component';
+import { ResidenceComponent } from './components/residence/residence.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApartmentComponent } from './apartment/apartment.component';
-import { DetailApartmentComponent } from './apartment/detail-apartment/detail-apartment.component';
-import { FormApartmentComponent } from './apartment/form-apartment/form-apartment.component';
+import { ApartmentComponent } from './components/apartment/apartment.component';
+import { DetailApartmentComponent } from './components/apartment/detail-apartment/detail-apartment.component';
+import { FormApartmentComponent } from './components/apartment/form-apartment/form-apartment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
-  { path: 'product', component: ProductComponent },
-  { path: 'product/:id', component: DetailProductComponent },
+  {
+    path: 'product',
+    children: [
+      { path: '', component: ProductComponent },
+      { path: 'detail/:id', component: DetailProductComponent },
+      // { path: 'product/add', component: DetailProductComponent},
+    ]
+  },
   { path: 'residence', component: ResidenceComponent },
-  { path: 'apartment', component: ApartmentComponent },
-  { path: 'apartment/add-new', component: FormApartmentComponent },
-  { path: 'apartment/:id', component: DetailApartmentComponent },
+  {
+    path: 'apartment',
+    children: [
+      { path: '', component: ApartmentComponent },
+      { path: 'detail/:id', component: DetailApartmentComponent },
+      { path: 'add', component: FormApartmentComponent },
+    ]
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
