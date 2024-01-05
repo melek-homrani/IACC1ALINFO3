@@ -2,36 +2,104 @@
   "apartments": [
     {
       "id": 1,
-      "name": "Apartment 1",
-      "description": "This is apartment 1",
-      "price": 1000,
-      "bedrooms": 2,
-      "bathrooms": 1,
-      "pets": true,
-      "location": "New York",
-      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b9b5b5b5b5b5b5b5b5b5b5b5b5b5b5b&auto=format&fit=crop&w=1350&q=80"
+      "appartNum": 1,
+      "floorNum": 0,
+      "surface": 100,
+      "terrace": "oui",
+      "surfaceTerrace": 20,
+      "category": "S+1",
+      "description": "Appartement S+1"
     },
     {
       "id": 2,
-      "name": "Apartment 2",
-      "description": "This is apartment 2",
-      "price": 2000,
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "pets": false,
-      "location": "San Francisco",
-      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b9b5b5b5b5b5b5b5b5b5b5b5b5b5b5b&auto=format&fit=crop&w=1350&q=80"
+      "appartNum": 2,
+      "floorNum": 2,
+      "surface": 130,
+      "terrace": "non",
+      "surfaceTerrace": 0,
+      "category": "S+2",
+      "description": "Appartement S+2"
     },
     {
       "id": 3,
-      "name": "Apartment 3",
-      "description": "This is apartment 3",
-      "price": 3000,
-      "bedrooms": 4,
-      "bathrooms": 3,
-      "pets": true,
-      "location": "Los Angeles",
-      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b9b5b5b5b5b5b5b5b5b5b5b5b5b5b5b&auto=format&fit=crop&w=1350&q=80"
+      "appartNum": 3,
+      "floorNum": 3,
+      "surface": 150,
+      "terrace": "oui",
+      "surfaceTerrace": 30,
+      "category": "S+3",
+      "description": "Appartement S+3"
+    },
+    {
+      "id": 4,
+      "appartNum": 4,
+      "floorNum": 4,
+      "surface": 200,
+      "terrace": "oui",
+      "surfaceTerrace": 50,
+      "category": "S+4",
+      "description": "Appartement S+4"
     }
+  ],
+  "residences":[
+    {
+      "id": 1,
+      "name": "El fel",
+      "address": "Borj Cedria",
+      "image": "src/assets/images/R1.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "El yasmine",
+      "address": "Ezzahra",
+      "image": "src/assets/images/R2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "El Arij",
+      "address": "Rades",
+      "image": "src/assets/images/R3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "El Anber",
+      "address": "Manzah 5",
+      "image": "src/assets/images/R4.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "t-shirt 1",
+      "price": 50,
+      "quantity": 10,
+      "like": 0,
+      "description": "test"
+    },
+    {
+      "id": 2,
+      "title": "t-shirt 2",
+      "price": 30,
+      "quantity": 5,
+      "like": 0,
+      "description": "test"
+    },
+    {
+      "id": 3,
+      "title": "t-shirt 3",
+      "price": 20,
+      "quantity": 0,
+      "like": 5,
+      "description": "test"
+    },
+    {
+      "id": 4,
+      "title": "t-shirt 4",
+      "price": 10,
+      "quantity": 0,
+      "like": 0,
+      "description": "test"
+    }
+
   ]
 }
